@@ -36,7 +36,7 @@ def draw_fractal(iterations, divergence_heuristic):
     print(turtle.screensize())
     xrange, yrange = turtle.screensize()
     zoom = 50
-    screen_size_mul=1
+    screen_size_mul=2
 
     for x in range(-xrange, xrange):
         for y in range(-yrange, yrange):
@@ -51,10 +51,11 @@ def draw_fractal(iterations, divergence_heuristic):
 
 
 def main():
+    turtle.screensize(200, 200)
     turtle.speed(0)
     turtle.tracer(False)
-    draw_fractal(25, 10000000)
-    #turtle.update()
+    draw_fractal(25, 1)
+    turtle.update()
     turtle.done()
     input("done")
 
