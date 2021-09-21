@@ -33,27 +33,28 @@ def draw_square(size=10):
 
 
 def draw_fractal(iterations, divergence_heuristic):
-    xrange = 100
-    yrange = 100
-    precision = 40
-    screen_size_mul=3
+    print(turtle.screensize())
+    xrange, yrange = turtle.screensize()
+    zoom = 50
+    screen_size_mul=1
 
     for x in range(-xrange, xrange):
-        for y in range(-yrange, xrange):
-            newx = x / precision
-            newy = y / precision
-            turtle.goto(x*3, y*3)
+        for y in range(-yrange, yrange):
+            print(x, y)
+            turtle.penup()
+            newx = x / zoom
+            newy = y / zoom
+            turtle.goto(x*screen_size_mul, y*screen_size_mul)
             turtle.pendown()
             turtle.color(diverges(newx, newy, iterations, divergence_heuristic))
             draw_square(screen_size_mul)
-            turtle.penup()
 
 
 def main():
     turtle.speed(0)
     turtle.tracer(False)
-    draw_fractal(100, 10000000)
-    turtle.update()
+    draw_fractal(25, 10000000)
+    #turtle.update()
     turtle.done()
     input("done")
 
